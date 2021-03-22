@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mezz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jbeall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 21:04:21 by ael-mezz          #+#    #+#             */
-/*   Updated: 2019/10/24 21:29:16 by ael-mezz         ###   ########.fr       */
+/*   Created: 2018/10/25 13:44:25 by jbeall            #+#    #+#             */
+/*   Updated: 2020/02/27 14:42:40 by ael-mezz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	*ft_memalloc(size_t size)
 {
-	if (lst == NULL || del == NULL || *lst == NULL)
-		return ;
-	ft_lstclear(&(*lst)->next, del);
-	ft_lstdelone(*lst, del);
-	*lst = NULL;
+	void *ptr;
+
+	ptr = malloc(size);
+	if (ptr == NULL)
+		return (NULL);
+	else
+		ft_bzero(ptr, size);
+	return (ptr);
 }

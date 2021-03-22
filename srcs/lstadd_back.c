@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   add_back.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-mezz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void	lstadd_back(t_list **alst, t_list *new)
 {
 	if (alst == NULL)
 		return ;
@@ -21,5 +21,5 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 		*alst = new;
 		return ;
 	}
-	ft_lstlast(*alst)->next = new;
+	lstlast(*alst)->next = new;
 }

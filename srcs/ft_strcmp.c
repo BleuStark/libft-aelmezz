@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-mezz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 17:51:52 by ael-mezz          #+#    #+#             */
-/*   Updated: 2019/10/24 20:09:00 by ael-mezz         ###   ########.fr       */
+/*   Created: 2019/09/09 21:46:00 by ael-mezz          #+#    #+#             */
+/*   Updated: 2021/02/23 18:12:55 by ael-mezz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int		ft_strcmp(char *s1, char *s2)
 {
-	int i;
-	int j;
-
-	if (lst == NULL)
-		return (NULL);
-	i = ft_lstsize(lst);
-	j = 0;
-	while (j < i - 1)
+	while (*s1 == *s2 && (*s1))
 	{
-		lst = lst->next;
-		j++;
+		s1++;
+		s2++;
 	}
-	return (lst);
+	if (*s1 != *s2)
+		return (*s1 - *s2);
+	else
+		return (0);
 }

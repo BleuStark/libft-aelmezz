@@ -6,7 +6,7 @@
 /*   By: ael-mezz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 15:09:32 by ael-mezz          #+#    #+#             */
-/*   Updated: 2019/10/24 23:13:11 by ael-mezz         ###   ########.fr       */
+/*   Updated: 2021/02/24 09:59:34 by ael-mezz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include "get_next_line.h"
 
 typedef struct		s_list
 {
@@ -22,6 +23,8 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					ft_strcmp(char *s1, char *s2);
+void				ft_free(char **s);
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);
@@ -57,17 +60,24 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+void				ft_putnbr_fd2(float n, int fd);
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_strcpy(char *dest, const char *src);
-t_list				*ft_lstnew(void *content);
-void				ft_lstadd_front(t_list **alst, t_list *new);
-int					ft_lstsize(t_list *lst);
-t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_back(t_list **alst, t_list *new);
-void				ft_lstdelone(t_list *lst, void (*del)(void *));
-void				ft_lstclear(t_list **lst, void(*del)(void *));
-void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstmap(t_list *lst,
+t_list				*lstnew(void *content);
+void				lstadd_front(t_list **alst, t_list *new);
+int					lstsize(t_list *lst);
+t_list				*lstlast(t_list *lst);
+void				lstadd_back(t_list **alst, t_list *new);
+void				lstdelone(t_list *lst, void (*del)(void *));
+void				lstclear(t_list **lst, void(*del)(void *));
+void				lstiter(t_list *lst, void (*f)(void *));
+t_list				*lstmap(t_list *lst,
 								void *(*f)(void *), void(*del)(void *));
+char				*ft_ptoa(void *p, char c);
+void				*ft_memalloc(size_t size);
+int					ft_strnchar(const char *str, char c);
+int					ft_strlen_2d(char **str);
+int					free_2d(char **str);
+int					ft_strcmp(char *s1, char *s2);
 
 #endif
